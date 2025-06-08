@@ -374,6 +374,15 @@ function Library:UpdateColorsUsingRegistry()
     end;
 end;
 
+function Library:UpdateFontsUsingRegistry()
+    for Idx, Object in next, Library.Registry do
+        local Instance = Object.Instance;
+        if Instance:IsA('TextLabel') or Instance:IsA('TextBox') or Instance:IsA('TextButton') then
+            Instance.Font = Library.Font;
+        end;
+    end;
+end;
+
 function Library:GiveSignal(Signal)
     -- Only used for signals not attached to library instances, as those should be cleaned up on object destruction by Roblox
     table.insert(Library.Signals, Signal)
@@ -2967,6 +2976,12 @@ function Library:CreateWindow(...)
         end;
         
         Library:UpdateColorsUsingRegistry();
+    end;
+
+
+    if typeof(Config.Font) == 'EnumItem' and Config.Font.EnumType == Enum.Font then
+        Library.Font = Config.Font;
+        Library:UpdateFontsUsingRegistry();
     end;
 
     local Window = {

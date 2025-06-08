@@ -1,7 +1,7 @@
 -- New example script written by wally
 -- You can suggest changes with a pull request or something
 
-local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+local repo = 'https://raw.githubusercontent.com/sillyconvicted/linoriamodded/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
@@ -16,6 +16,7 @@ local Window = Library:CreateWindow({
     Title = 'Example menu',
     Center = true,
     AutoShow = true,
+    Font = Enum.Font.Gotham,
     TabPadding = 8,
     MenuFadeTime = 0.2,
     
